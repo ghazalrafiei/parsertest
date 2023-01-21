@@ -1,0 +1,16 @@
+name: autograding assignments
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  print_hello:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: mkdir build && cd build
+      - run: cmake ..
+      - run: cmake --build .
+      - run: ./TwoTests
