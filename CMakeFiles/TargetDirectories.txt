@@ -1,3 +1,0 @@
-/home/giraffael/Documents/E658/gittest/CMakeFiles/Two.dir
-/home/giraffael/Documents/E658/gittest/CMakeFiles/edit_cache.dir
-/home/giraffael/Documents/E658/gittest/CMakeFiles/rebuild_cache.dir
