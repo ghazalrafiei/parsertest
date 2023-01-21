@@ -4,7 +4,8 @@ project(Two) #optional
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(two two.cpp) #same as g++ two.cpp -o Two
+# add_executable(two two.cpp) #same as g++ two.cpp -o Two
+# add_executable(pr Prime_Assignment.cpp)
 
 # For GoogleTest
 include_directories(..)
