@@ -3,7 +3,10 @@ Navigate to this folder.
 
 Run these commands
 ```
-cmake .
+mkdir build && cd build
+cmake ..
 cmake --build .
+
 ./Two
+./TwoTest
 ```

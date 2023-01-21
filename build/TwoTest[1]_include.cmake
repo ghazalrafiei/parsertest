@@ -1,0 +1,5 @@
+if(EXISTS "/home/giraffael/Documents/E658/gittest/build/TwoTest[1]_tests.cmake")
+  include("/home/giraffael/Documents/E658/gittest/build/TwoTest[1]_tests.cmake")
+else()
+  add_test(TwoTest_NOT_BUILT TwoTest_NOT_BUILT)
+endif()
