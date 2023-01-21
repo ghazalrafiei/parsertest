@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(two two.cpp) #same as g++ two.cpp -o Two
 
 # For GoogleTest
+include_directories(..)
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -15,7 +16,7 @@ FetchContent_Declare(
 
 enable_testing()
 
-add_executable (TwoTest test/two_test.cc)
+add_executable (TwoTest test/two_test.cpp)
 target_link_libraries(TwoTest gtest gtest_main)
 
 include(GoogleTest)
