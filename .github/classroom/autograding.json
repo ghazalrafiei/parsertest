@@ -2,7 +2,7 @@
     "tests": [
       {
         "name": "Test 1",
-        "run": "./testing hi",
+        "run": "./build/testing hi",
         "timeout": 2,
         "points": 10
       }

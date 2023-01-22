@@ -24,6 +24,6 @@ int main(int argc, char **argv) {
   std::string command_line_arg(argc == 2 ? argv[1] : "");
   testing::InitGoogleTest(&argc, argv);
   testing::AddGlobalTestEnvironment(new MyTestEnvironment(command_line_arg));
-  return RUN_ALL_TESTS();
+  return RUN_ALL_TESTS(); // if all correct: 0, else 1
 }
 
