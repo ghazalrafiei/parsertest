@@ -15,7 +15,7 @@ jobs:
         cd /usr/src/gtest
         sudo cmake CmakeLists.txt
         sudo make
-        sudo cp *.a /usr/lib
+    # sudo cp *.a /usr/lib
 
       
     #   shell: bash
