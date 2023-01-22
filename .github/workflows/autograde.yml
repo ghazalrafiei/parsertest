@@ -27,19 +27,22 @@ jobs:
         cmake ..
         make
         ./TwoTest
+    # - uses: education/autograding@v1
+    - uses: education/autograding@v1
+      id: autograder
+      continue-on-error: true
 
-    - name: SUCCESS
-      if: success()
-      uses: machine-learning-apps/pr-comment@master
-      env: 
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        path: .github/ISSUE_TEMPLATE/success.md
+    # - name: SUCCESS
+    #   if: success()
+    #   env: 
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   with:
+    #     path: .github/ISSUE_TEMPLATE/success.md
 
-    - name: FAIL
-      if: failure()
-      uses: machine-learning-apps/pr-comment@master
-      env: 
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        path: .github/ISSUE_TEMPLATE/failure.md
+    # - name: FAIL
+    #   if: failure()
+    #   uses: machine-learning-apps/pr-comment@master
+    #   env: 
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   with:
+    #     path: .github/ISSUE_TEMPLATE/failure.md
