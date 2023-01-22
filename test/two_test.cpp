@@ -9,6 +9,10 @@ TEST(TwoTest, PrintTwo) {
   EXPECT_EQ(ReturnTwo(4), 2);
 }
 
+TEST(TwoTest, Failure) {
+  EXPECT_EQ(ReturnTwo(4), 5);
+}
+
 // TEST(Prime, prime){
 //  EXPECT_FALSE(is_prime(12));
 //  }

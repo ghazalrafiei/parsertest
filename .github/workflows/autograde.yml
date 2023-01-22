@@ -4,31 +4,42 @@ on:
   push:
     branches:
       - master
+    # paths: 
+      # - '../../parser.c'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
     - name: Install Googletest
       run: |
         sudo apt-get install libgtest-dev
         cd /usr/src/gtest
         sudo cmake CmakeLists.txt
         sudo make
-    # sudo cp *.a /usr/lib
 
-      
-    #   shell: bash
-    #   working-directory: ${{github.workspace}}
-    #   run: |
-    #       # wget https://github.com/google/googletest/archive/refs/tags/v1.13.0.tar.gz
-    #       # tar xzf v1.13.0.tar.gz 
-    #       # ln -s googletest-1.13.0 googletest
-    
-    - uses: actions/checkout@v3
     - name: build & run
       run: |
         mkdir build && cd build 
         cmake ..
         make
         ./TwoTest
+
+  # grade: 
+  #   runs-on: ubuntu-latest
+  #   steps: 
+    - name: Success message
+      uses: machine-learning-apps/pr-comment@master
+      #A GitHub action that will comment on the relevant open PR with a file contents when a commit is pushed.
+      # env: 
+        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        path: .github/ISSUE_TEMPLATE/success.md
+
+    - name: Failure message
+      uses: machine-learning-apps/pr-comment@master
+      # env: 
+        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        path: .github/ISSUE_TEMPLATE/failure.md
