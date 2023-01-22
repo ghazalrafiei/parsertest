@@ -10,12 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Install Googletest
-      shell: bash
-      working-directory: ${{github.workspace}}
       run: |
-          wget https://github.com/google/googletest/archive/refs/tags/v1.13.0.tar.gz
-          tar xzf v1.13.0.tar.gz 
-          ln -s googletest-1.13.0 googletest
+        sudo apt-get install libgtest-dev
+        cd /usr/src/gtest
+        sudo cmake CmakeLists.txt
+        sudo make
+        sudo cp *.a /usr/lib
+
+      
+    #   shell: bash
+    #   working-directory: ${{github.workspace}}
+    #   run: |
+    #       # wget https://github.com/google/googletest/archive/refs/tags/v1.13.0.tar.gz
+    #       # tar xzf v1.13.0.tar.gz 
+    #       # ln -s googletest-1.13.0 googletest
     
     - uses: actions/checkout@v3
     - name: build & run
