@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v3.3.0
     - name: Install Googletest
       run: |
         sudo apt-get install libgtest-dev
@@ -24,12 +24,12 @@ jobs:
         cmake ..
         make
     #    ./prime
-
-      if: success() || failure()
+# 
+      # if: success() || failure()
     - uses: education/autograding@v1
     # - name: classroom
-      id: autograder
-      continue-on-error: true
+      # id: autograder
+      # continue-on-error: true
 
     # - name: SUCCESS
     # if: success()
