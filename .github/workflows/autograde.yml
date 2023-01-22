@@ -14,12 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    # - name: Install Googletest
-    #   run: |
-    #     sudo apt-get install libgtest-dev
-    #     cd /usr/src/gtest
-    #     sudo cmake CmakeLists.txt
-    #     sudo make
+    - name: Install Googletest
+      run: |
+        sudo apt-get install libgtest-dev
+        cd /usr/src/gtest
+        sudo cmake CmakeLists.txt
+        sudo make
 
     - name: build & run
       run: |
