@@ -6,6 +6,8 @@ on:
       - master
     # paths: 
       # - '../../parser.c'
+env:
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
 jobs:
   build:
@@ -29,28 +31,15 @@ jobs:
     - name: SUCCESS
       if: success()
       uses: machine-learning-apps/pr-comment@master
-      # env: 
-        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         path: .github/ISSUE_TEMPLATE/success.md
 
     - name: FAIL
       if: failure()
       uses: machine-learning-apps/pr-comment@master
-      # env: 
-        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         path: .github/ISSUE_TEMPLATE/failure.md
-
-  # grade: 
-  #   runs-on: ubuntu-latest
-  #   steps: 
-    # - name: Success message
-    #   uses: machine-learning-apps/pr-comment@master
-    #   #A GitHub action that will comment on the relevant open PR with a file contents when a commit is pushed.
-    #   # env: 
-    #     # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   with:
-    #     path: .github/ISSUE_TEMPLATE/success.md
-
-    # - name: Failure message
