@@ -1,23 +1,29 @@
 #include <gtest/gtest.h>
 #include "../two.cpp"
-// #include "../Prime_Assignment.cpp"
 
-// Demonstrate some basic assertions.
-// Optional names without _
-// TestSuiteName, TestName
-TEST(TwoTest, PrintTwo) {
-  EXPECT_EQ(ReturnTwo(4), 2);
+namespace {
+std::string g_command_line_arg;
 }
 
-// TEST(TwoTest, Failure) {
-//   EXPECT_EQ(ReturnTwo(4), 5);
-// }
+class MyTestEnvironment : public testing::Environment {
+ public:
+  explicit MyTestEnvironment(const std::string &command_line_arg) {
+    g_command_line_arg = command_line_arg;
+  }
+};
 
-// TEST(Prime, prime){
-//  EXPECT_FALSE(is_prime(12));
-//  }
+TEST(MyTest, command_line_arg_test) {
+  ASSERT_FALSE(g_command_line_arg.empty());
+}
+
+TEST(STR, strtest){
+  EXPECT_EQ(g_command_line_arg+"1", "hi1");
+}
 
 int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
+  std::string command_line_arg(argc == 2 ? argv[1] : "");
+  testing::InitGoogleTest(&argc, argv);
+  testing::AddGlobalTestEnvironment(new MyTestEnvironment(command_line_arg));
   return RUN_ALL_TESTS();
 }
+

@@ -5,7 +5,6 @@ project(Two) #optional
 set(CMAKE_CXX_STANDARD 17)
 
 # add_executable(two two.cpp) #same as g++ two.cpp -o Two
-# add_executable(pr Prime_Assignment.cpp)
 
 # For GoogleTest
 include_directories(..)
@@ -17,8 +16,8 @@ FetchContent_Declare(
 
 enable_testing()
 
-add_executable (TwoTest test/two_test.cpp)
-target_link_libraries(TwoTest gtest gtest_main)
+add_executable (testing test/two_test.cpp)
+target_link_libraries(testing gtest gtest_main)
 
 include(GoogleTest)
-gtest_discover_tests(TwoTest)
+gtest_discover_tests(testing)

@@ -1,12 +1,4 @@
 #include <iostream>
-#include "gtest/gtest.h"
-// #include "Prime_Assignment.cpp"
-
-int ReturnTwo(int t){
-    int x = 2;
-    return x;
-}
-
 bool is_prime(int n){
     if (n==2)
         return true;
@@ -15,18 +7,18 @@ bool is_prime(int n){
         if(n%i==0){
             return false;
         }
-        
-        
     }
     return true;
 }
 
+std::string plus_one(std::string a){
+    return a + "1";
+}
+
+
 // int main(){
-//     std::cout<<"Hello World.";
-//     return 0;
-//     // std::cout<<is_prime(12)<<'\n';
-//     // std::cout<<is_prime(2)<<'\n';
-//     // std::cout<<is_prime(3)<<'\n';
-//     // std::cout<<is_prime(15)<<'\n';
-//     // std::cout<<is_prime(127);
+//     std::cout<<"Hello World.\n";
+//     int x;
+//     std::cin>>x;
+//     std::cout<<is_prime(x);
 // }
