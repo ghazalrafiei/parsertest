@@ -9,24 +9,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    # - name: Install gtest manually
-      # run: sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp *.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
+    - name: Install Googletest
+      shell: bash
+      working-directory: ${{github.workspace}}
+      run: |
+          wget https://github.com/google/googletest/archive/release-1.13.1.tar.gz
+          tar xzf release-1.13.1.tar.gz
+          ln -s googletest-release-1.13.1 googletest
+    
     - uses: actions/checkout@v3
-    - name: configure
-      run: mkdir build && cd build 
-    - name: cmake
-      run: cd build && cmake ..
-    - name: make
-      run:  cd build && make
-    - name: Run Tests
-      run: ./build/TwoTest
-
-
-# jobs:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v3
-#       - run: mkdir build && cd build
-#       - run: cmake ..
-#       - run: cmake --build .
-#       - run: ./TwoTests
+    - name: build & run
+      run: |
+        mkdir build && cd build 
+        cmake ..
+        make
+        ./TwoTest
