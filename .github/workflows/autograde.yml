@@ -26,7 +26,7 @@ jobs:
     #    ./prime
 # 
       if: success() || failure()
-    - uses: ghazalrafiei/autograding@v1.1
+    - uses: ghazalrafiei/autograding@master
     # - name: classroom
       # id: autograder
       # continue-on-error: true
